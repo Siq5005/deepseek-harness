@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "author": "DeepSeek Harness Contributors",
+  "packageManager": "npm@11.7.0",
   "description": "Minimal Electron shell for the DeepSeek Harness web surface",
   "main": "main.cjs",
   "scripts": {
