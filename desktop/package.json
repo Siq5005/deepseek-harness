@@ -1,0 +1,51 @@
+{
+  "name": "dsh-desktop",
+  "version": "0.0.1",
+  "private": true,
+  "author": "DeepSeek Harness Contributors",
+  "description": "Minimal Electron shell for the DeepSeek Harness web surface",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh": "^0.1.0-rc.6"
+  },
+  "devDependencies": {
+    "electron": "^43.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "ai.deepseek.dsh.desktop",
+    "productName": "DeepSeek Harness",
+    "icon": "build/icon.png",
+    "asar": false,
+    "directories": {
+      "output": "release"
+    },
+    "asarUnpack": [
+      "node_modules/**/*.node",
+      "node_modules/**/bin/**",
+      "node_modules/@deepseek-ai/**/lib/**",
+      "node_modules/@deepseek-ai/**/dist/**"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

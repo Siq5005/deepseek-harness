@@ -34,6 +34,14 @@ pnpm run build
 pnpm dsh web
 ```
 
+## Desktop client
+
+This fork adds an Electron-wrapped desktop version of the Web UI in
+[`desktop/`](desktop/README.md). It starts the local `dsh web` host on a
+loopback port and opens it in a desktop window, so no browser tab is required.
+Installers for macOS and Windows are built through
+`.github/workflows/desktop-build.yml`.
+
 ## Community and support
 
 - Feel free to submit feedback or bug reports through [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions).
