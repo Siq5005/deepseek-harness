@@ -43,19 +43,22 @@ jobs:
           cache: npm
           cache-dependency-path: desktop/package-lock.json
 
+      - name: Stage desktop outside the monorepo
+        run: node -e "require('node:fs').cpSync('desktop', process.env.RUNNER_TEMP + '/desktop', { recursive: true })"
+
       - name: Install desktop dependencies
-        working-directory: desktop
+        working-directory: ${{ runner.temp }}/desktop
         run: npm ci
 
       - name: Build installers
-        working-directory: desktop
+        working-directory: ${{ runner.temp }}/desktop
         run: npx electron-builder ${{ matrix.args }}
 
       - uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.artifact }}
           path: |
-            desktop/release/*.dmg
-            desktop/release/*.zip
-            desktop/release/*.exe
+            ${{ runner.temp }}/desktop/release/*.dmg
+            ${{ runner.temp }}/desktop/release/*.zip
+            ${{ runner.temp }}/desktop/release/*.exe
           if-no-files-found: ignore
