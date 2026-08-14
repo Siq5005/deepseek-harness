@@ -1,5 +1,7 @@
 # dsh-desktop
 
+English | [中文](README.zh.md)
+
 Minimal Electron shell for the DeepSeek Harness web surface. It starts the
 local `dsh web` host on a random loopback port and loads it in a desktop
 window, so there is no browser tab to open.

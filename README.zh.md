@@ -34,6 +34,12 @@ pnpm run build
 pnpm dsh web
 ```
 
+## 桌面客户端
+
+本 fork 在 [`desktop/`](desktop/README.md) 中新增了一个 Electron 套壳的桌面版本。
+它会在随机回环端口上启动本地 `dsh web`，并在桌面窗口中打开，因此无需浏览器标签页。
+macOS 和 Windows 安装包通过 `.github/workflows/desktop-build.yml` 构建。
+
 ## 社区与支持
 
 - 欢迎通过 [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions) 提交反馈或 bug 报告。
