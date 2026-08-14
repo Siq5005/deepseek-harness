@@ -44,7 +44,8 @@ jobs:
           cache-dependency-path: desktop/package-lock.json
 
       - name: Stage desktop outside the monorepo
-        run: node -e "require('node:fs').cpSync('desktop', process.env.RUNNER_TEMP + '/desktop', { recursive: true })"
+        run: |
+          node -e "require('node:fs').cpSync('desktop', process.env.RUNNER_TEMP + '/desktop', { recursive: true })"
 
       - name: Install desktop dependencies
         working-directory: ${{ runner.temp }}/desktop
